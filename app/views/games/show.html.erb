@@ -1,10 +1,26 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @game %>
+<%# <%= render @game %> 
+
+
+<%= stylesheet_link_tag('game') %>
+<% content_for :title, @game.name %>
+
+<body>
+  <p>
+    <% if @game.banner.attached?%>
+      <%= image_tag(@game.banner, style: "width: min-width: 400px; width: 80%; height: 250px; object-fit: contain;") %>
+    <% else %>
+      <div class="page-header">
+        <h1><%= @game.name %></h1>
+      </div>
+    <%end%>
+  </p>
+</body>
 
 <div>
   <%= link_to "Edit this game", edit_game_path(@game) %> |
   <%= link_to "Back to games", games_path %>
 
-  <%= button_to "Destroy this game now", @game, method: :delete %>
+  <%= button_to "Destroy this game", @game, method: :delete %>
 </div>

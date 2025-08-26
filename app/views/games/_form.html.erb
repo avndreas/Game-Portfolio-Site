@@ -11,26 +11,67 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
-  </div>
+  <% if @game.new_record? %>
+    <div>
+      <%= form.label :name, style: "display: block" %>
+      <%= form.text_field :name %>
+    </div>
 
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_field :description %>
-  </div>
+    <div>
+      <%= form.label :description, style: "display: block" %>
+      <%= form.text_field :description %>
+    </div>
 
-  <div>
-    <%= form.label :link, style: "display: block" %>
-    <%= form.text_field :link %>
-  </div>
+    <div>
+      <%= form.label :link, style: "display: block" %>
+      <%= form.text_field :link %>
+    </div>
 
-  <div>
-    <%= form.file_field :image%>
-  </div>
+    <div>
+      <%= form.file_field :image%>
+    </div>
 
-  <div>
-    <%= form.submit %>
-  </div>
+    <div>
+      <%= form.submit %>
+    </div>
+  <% else %>
+    <p> Edit <%= @game.name %> </p>
+    <div>
+      <%= form.label :name, style: "display: block" %>
+      <%= form.text_field :name %>
+    </div>
+
+    <div>
+      <%= form.label :description, style: "display: block" %>
+      <%= form.text_field :description %>
+    </div>
+
+    <div>
+      <%# <%= form.label :link, style: "display: block" %>
+      <p>Link to game<br> <%= form.text_field :link %> </p>
+      
+    </div>
+
+    <div>
+      <%= form.label :image %>
+      <%= form.file_field :image%>
+      <% if @game.image.attached? %>
+        <p>Current image: <%= @game.image.filename %> <br> <%= image_tag @game.image, width: 100 %> </p>
+      <% end %>
+    </div>
+
+    <div>
+      <%= form.label :banner %>
+      <%= form.file_field :banner%>
+      <% if @game.banner.attached? %>
+        <p>Current image: <%= @game.banner.filename %> <br> <%= image_tag @game.banner, width: 100 %> </p>
+      <% end %>
+    </div>
+
+    <div>
+      <%= form.submit %>
+    </div>
+  <% end %>
+
+
 <% end %>

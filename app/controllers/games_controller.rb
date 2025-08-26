@@ -65,6 +65,6 @@ class GamesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def game_params
-      params.expect(game: [ :name, :description, :link, :image ])
+      params.expect(game: [ :name, :description, :link, :image, :banner ])
     end
 end
