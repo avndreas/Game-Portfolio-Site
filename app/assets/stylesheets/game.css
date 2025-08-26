@@ -1,9 +1,53 @@
 body {
     text-align: center;
+    background-image: url('star-clouds.png');
+    background-repeat: repeat;
+    background-size: 30%;
+    background-position: center;
 }
 
 #games {
     text-align: left;
     padding: 100px;
     
+}
+
+/* This doesn't work yet */
+
+@font-face {
+    font-family: NoitaBlackletter;
+    src: url('NoitaBlackletter-Regular.otf') format('otf'),
+         url('NoitaBlackletter-Regular.ttf') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.page-header {
+    font-family: NoitaBlackletter;
+    font-size: 42px;
+}
+
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 30%));
+    gap: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    padding-right: 20%;
+    padding-left: 20%;
+}
+
+.grid-item {
+    text-align: center;
+    background-color: rgb(198, 236, 236);
+}
+
+.grid-item a:link {
+    text-decoration: none;
+    color: black;
+}
+
+.grid-item a:visited {
+    text-decoration: none;
+    color: black;
 }

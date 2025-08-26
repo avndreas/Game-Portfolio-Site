@@ -2,15 +2,20 @@
 <%= stylesheet_link_tag('game') %>
 <% content_for :title, "Games" %>
 
-<h1>Games</h1>
+<body>
+  <div class="page-header">
+    <h1>Games</h1>
+  </div>
+  <div class="games-grid">
+    <% @games.each do |game| %>
+      
+      <div class="grid-item">
+        <%= link_to (render game), game %>
+      </div>
+    <% end %>
+  </div>
 
-<div id="games">
-  <% @games.each do |game| %>
-    <%= render game %>
-    <p>
-      <%= link_to "Show this game", game %>
-    </p>
-  <% end %>
-</div>
+  <%= link_to "New game", new_game_path %>
 
-<%= link_to "New game", new_game_path %>
+</body>
+
