@@ -16,6 +16,18 @@
       </div>
     <%end%>
   </p>
+
+  <div class="show-grid">
+    <div style="background-color: white">
+      <p> This will be the markdown area </p>
+    </div>
+    <div style="background-color: orange">
+      <% if @game.screenshot_1.attached?%>
+        <%= image_tag(@game.screenshot_1, style: "width: min-width: 0px; width: 80%; height: 250px; object-fit: contain;") %>
+      <% end %>
+    </div>
+  </div>
+
 </body>
 
 <div>

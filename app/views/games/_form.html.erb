@@ -34,7 +34,7 @@
     <div>
       <%= form.submit %>
     </div>
-  <% else %>
+  <% else %> <%# For when the game has already been created. Lets the user upload screenshots and the banner for the game page along with updating existing info.%>
     <p> Edit <%= @game.name %> </p>
     <div>
       <%= form.label :name, style: "display: block" %>
@@ -56,7 +56,7 @@
       <%= form.label :image %>
       <%= form.file_field :image%>
       <% if @game.image.attached? %>
-        <p>Current image: <%= @game.image.filename %> <br> <%= image_tag @game.image, width: 100 %> </p>
+        <p>Current thumbnail: <%= @game.image.filename %> <br> <%= image_tag @game.image, width: 150 %> </p>
       <% end %>
     </div>
 
@@ -64,9 +64,37 @@
       <%= form.label :banner %>
       <%= form.file_field :banner%>
       <% if @game.banner.attached? %>
-        <p>Current image: <%= @game.banner.filename %> <br> <%= image_tag @game.banner, width: 100 %> </p>
+        <p>Current banner: <%= @game.banner.filename %> <br> <%= image_tag @game.banner, width: 150 %> </p>
       <% end %>
     </div>
+
+    <div class="games-grid">
+      <div>
+        <%= form.label :screenshot_1 %>
+        <%= form.file_field :screenshot_1%>
+        <% if @game.screenshot_1.attached? %>
+          <p>Screenshot 1: <%= @game.screenshot_1.filename %> <br> <%= image_tag @game.screenshot_1, width: 150 %> </p>
+        <% end %>
+      </div>
+
+      <div>
+        <%= form.label :screenshot_2 %>
+        <%= form.file_field :screenshot_2%>
+        <% if @game.screenshot_2.attached? %>
+          <p>Screenshot 2: <%= @game.screenshot_2.filename %> <br> <%= image_tag @game.screenshot_2, width: 150 %> </p>
+        <% end %>
+      </div>
+
+      <div>
+        <%= form.label :screenshot_3 %>
+        <%= form.file_field :screenshot_3%>
+        <% if @game.screenshot_3.attached? %>
+          <p>Screenshot 3: <%= @game.screenshot_3.filename %> <br> <%= image_tag @game.screenshot_3, width: 150 %> </p>
+        <% end %>
+      </div>
+    </div>
+
+
 
     <div>
       <%= form.submit %>
