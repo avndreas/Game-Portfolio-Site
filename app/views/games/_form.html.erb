@@ -1,3 +1,7 @@
+<%= content_for :head do %>
+  <link href="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.css" rel="stylesheet" type="text/css" />
+<% end %>
+
 <%= form_with(model: game) do |form| %>
   <% if game.errors.any? %>
     <div style="color: red">
@@ -43,13 +47,20 @@
 
     <div>
       <%= form.label :description, style: "display: block" %>
-      <%= form.text_field :description %>
+      <%= form.textarea :description %>
     </div>
 
     <div>
       <%# <%= form.label :link, style: "display: block" %>
       <p>Link to game<br> <%= form.text_field :link %> </p>
-      
+    </div>
+
+    <div>
+      <p>
+        Tags<br> 
+        <%= form.text_field :tags, 
+        data: { controller: "tag" } %> 
+      </p>
     </div>
 
     <div>

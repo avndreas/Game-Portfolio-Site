@@ -7,15 +7,18 @@
 <% content_for :title, @game.name %>
 
 <body>
-  <p>
-    <% if @game.banner.attached?%>
-      <%= image_tag(@game.banner, style: "width: min-width: 400px; width: 80%; height: 250px; object-fit: contain;") %>
-    <% else %>
-      <div class="page-header">
-        <h1><%= @game.name %></h1>
-      </div>
-    <%end%>
-  </p>
+  <div>
+    <p>
+      <% if @game.banner.attached?%>
+        <%= image_tag(@game.banner, style: "width: 80%; height: 250px; object-fit: contain;") %>
+      <% else %>
+        <div class="page-header">
+          <h1><%= @game.name %></h1>
+        </div>
+      <%end%>
+    </p>
+  </div>
+
 
   <div class="show-grid">
     <div style="background-color: white">
